@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ article.titre }}</h2>
+    <p>{{ article.contenu }}</p>
+    <p><strong>Auteur :</strong> {{ article.auteur }}</p>
+    <p><strong>Publié le :</strong> {{ article.date_publication }}</p>
+
+    {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.titre }}" width="400">
+    {% endif %}
+
+    <a href="{% url 'article_update' article.pk %}">Modifier</a>
+    <a href="{% url 'article_delete' article.pk %}">Supprimer</a>
+    <a href="{% url 'article_list' %}">Retour</a>
+{% endblock %}

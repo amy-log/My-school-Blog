@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Liste des Articles</h2>
+    <a href="{% url 'article_create' %}">Créer un nouvel article</a>
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{% url 'article_detail' article.pk %}">{{ article.titre }}</a> 
+                ({{ article.date_publication }})
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
